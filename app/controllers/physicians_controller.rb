@@ -17,6 +17,9 @@ class PhysiciansController < ApplicationController
     @physician.save ? (redirect_to physician_path) : (render :new)
   end
 
+  def edit
+  end
+
   def update
     @physician.update ? (redirect_to physician_path) : (render :update)
   end

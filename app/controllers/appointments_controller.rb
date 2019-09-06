@@ -1,25 +1,39 @@
 class AppointmentsController < ApplicationController
   before_action :set_physician
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   def index
     @appointments = @physician.appointments.all
   end
 
   def new
-    @appointment = Appointment.new
+    @appointment = @physician.appointment.new
   end
 
   def show
   end
 
   def create
+    @appointment = @physician.appointment.new(appointment_params)
+    if @appointment.save
+      redirect_to physician_appointment_path(@physician, @appointment)
+    else
+      render :new
+    end
+  end
+
+  def edit
   end
 
   def update
-
+    if @appointment.update
+      redirect_to physician_appointment_path(@physician, @appointment)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @appointment
+    @appointment.destroy
   end
 
   private
