@@ -38,4 +38,8 @@ class PatientsController < ApplicationController
   def set_patient
     @patient = Patient.find(params[:id])
   end
+
+  def set_physician
+    @physician = Physician.find(params[:id])
+  end
 end

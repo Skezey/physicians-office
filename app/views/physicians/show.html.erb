@@ -1,20 +1,6 @@
-<h1><%= @physician.name %>'s Appointments</h1>
+<h1><%= @physician.name %></h1>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <td>Date</td>
-      <td>Time</td>
-      <td>Patient</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @physician.appointments.each do |appointment| %>
-      <tr>
-        <td><%= appointment.date %></td>
-        <td><%= appointment.time %></td>
-        <td><%= link_to Patient.find(appointment.patient_id).name, patient_path(Patient.find(appointment.patient_id)) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h2>Specialty: <%= @physician.specialty %></h2>
+
+<%= link_to 'View Appointments', physician_appointments_path(@physician), class: 'btn btn-primary' %>
+<%= link_to 'Back', physicians_path %>

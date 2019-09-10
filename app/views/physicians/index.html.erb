@@ -12,7 +12,10 @@
     <tr>
       <td><%= link_to physician.name, physician_path(physician) %></td>
       <td><%= physician.specialty %></td>
-      <td><%= link_to 'Edit', edit_physician_path(physician), class: 'btn btn-warning'%> <%= link_to 'Delete', physician_path(physician), method: :delete, class: 'btn btn-danger'%></td>
+      <td>
+        <%= link_to 'Edit', edit_physician_path(physician), class: 'btn btn-warning'%>
+        <%= link_to 'Delete', physician_path(physician), method: :delete, class: 'btn btn-danger'%>
+      </td>
     </tr>
     <% end %>
   </tbody>

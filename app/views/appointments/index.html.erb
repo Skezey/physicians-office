@@ -1,3 +1,6 @@
+<h1><%= @physician.name %>'s Appointments</h1>
+
+<%= link_to 'Schedule appointment', new_physician_appointment_path(@physician), class: 'btn btn-primary' %>
 <table class='table'>
   <thead>
     <tr>
@@ -5,16 +8,23 @@
       <td>Physician</td>
       <td>Time</td>
       <td>Date</td>
+      <td>Edit/Delete</td>
     </tr>
   </thead>
   <tbody>
-    <% @appointments.each do |appointment| %>
+    <% @physician.appointments.each do |appointment| %>
     <tr>
-      <td><%= Patient.find(appointment.patient_id).name %></td>
+      <td><%= link_to Patient.find(appointment.patient_id).name, patient_path(Patient.find(appointment.patient_id)) %></td>
       <td><%= Physician.find(appointment.physician_id).name %></td>
       <td><%= appointment.time %></td>
       <td><%= appointment.date %></td>
+      <td>
+        <%= link_to 'Edit', edit_physician_appointment_path(@physician, appointment), class: 'btn btn-warning'%>
+        <%= link_to 'Delete', physician_appointment_path(@physician, appointment), method: :delete, class: 'btn btn-danger' %>
+      </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to 'Back', physician_path(@physician) %>

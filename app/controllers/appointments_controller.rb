@@ -15,7 +15,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     if @appointment.save
-      redirect_to physician_appointment_path(@physician, @appointment)
+      redirect_to physician_appointments_path(@physician)
     else
       render :new
     end
@@ -25,8 +25,8 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    if @appointment.update
-      redirect_to physician_appointment_path(@physician, @appointment)
+    if @appointment.update(appointment_params)
+      redirect_to physician_appointments_path(@physician)
     else
       render :edit
     end
@@ -34,6 +34,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
+    redirect_to physician_appointments_path(@physician)
   end
 
   private
