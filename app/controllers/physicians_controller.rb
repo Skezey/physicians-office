@@ -15,7 +15,7 @@ class PhysiciansController < ApplicationController
   def create
     @physician = Physician.new(physician_params)
     if @physician.save
-      redirect_to physician_path
+      redirect_to physician_path(@physician)
     else
       render :new
     end
@@ -26,7 +26,7 @@ class PhysiciansController < ApplicationController
 
   def update
     if @physician.update(physician_params)
-      redirect_to physician_path
+      redirect_to physician_path(@physician)
     else
       render :edit
     end

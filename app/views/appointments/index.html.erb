@@ -5,7 +5,6 @@
   <thead>
     <tr>
       <td>Patient</td>
-      <td>Physician</td>
       <td>Time</td>
       <td>Date</td>
       <td>Edit/Delete</td>
@@ -15,7 +14,6 @@
     <% @physician.appointments.each do |appointment| %>
     <tr>
       <td><%= link_to Patient.find(appointment.patient_id).name, patient_path(Patient.find(appointment.patient_id)) %></td>
-      <td><%= Physician.find(appointment.physician_id).name %></td>
       <td><%= appointment.time %></td>
       <td><%= appointment.date %></td>
       <td>
