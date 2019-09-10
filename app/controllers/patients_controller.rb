@@ -2,7 +2,7 @@ class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   def index
-    @patients = Patient.all
+    @patients = Patient.all.order(name: :asc)
   end
 
   def show
@@ -21,11 +21,12 @@ class PatientsController < ApplicationController
   end
 
   def update
-    @patient.update ? (redirect_to patient_path) : (render :edit)
+    @patient.update(patient_params) ? (redirect_to patient_path) : (render :edit)
   end
 
   def destroy
     @patient.destroy
+    redirect_to patients_path
   end
 
   private

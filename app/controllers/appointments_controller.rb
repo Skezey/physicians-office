@@ -2,18 +2,18 @@ class AppointmentsController < ApplicationController
   before_action :set_physician
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   def index
-    @appointments = @physician.appointments.all
+    @appointments = Appointment.all
   end
 
   def new
-    @appointment = @physician.appointment.new
+    @appointment = Appointment.new
   end
 
   def show
   end
 
   def create
-    @appointment = @physician.appointment.new(appointment_params)
+    @appointment = Appointment.new(appointment_params)
     if @appointment.save
       redirect_to physician_appointment_path(@physician, @appointment)
     else
@@ -48,5 +48,9 @@ class AppointmentsController < ApplicationController
 
   def set_physician
     @physician = Physician.find(params[:physician_id])
+  end
+
+  def set_patient
+    @patient = Patient.find(params[:patient_id])
   end
 end

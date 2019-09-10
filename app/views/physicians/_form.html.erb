@@ -1,0 +1,10 @@
+<div class='jumbotron'>
+  <h1><%= @physician.id ? ('Edit Physician') : ('Create Physician') %></h1>
+  <%= form_for @physician do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :specialty %>
+    <%= f.text_field :specialty %>
+    <%= f.submit %>
+  <% end %>
+</div>

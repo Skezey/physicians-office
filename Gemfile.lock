@@ -68,6 +68,8 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+    bootstrap-datepicker-rails (1.8.0.1)
+      railties (>= 3.0)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.29.0)
@@ -197,6 +199,7 @@ GEM
     selenium-webdriver (3.142.4)
       childprocess (>= 0.5, < 3.0)
       rubyzip (~> 1.2, >= 1.2.2)
+    skeezy_view_tool (0.1.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -208,6 +211,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stamp (0.6.0)
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -241,6 +245,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.3, >= 4.3.1)
+  bootstrap-datepicker-rails (~> 1.8, >= 1.8.0.1)
   byebug
   capybara (>= 2.15)
   devise (~> 4.7)
@@ -255,8 +260,10 @@ DEPENDENCIES
   rails (~> 6.0.0)
   sass-rails (~> 5)
   selenium-webdriver
+  skeezy_view_tool (~> 0.1.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  stamp (~> 0.6.0)
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers

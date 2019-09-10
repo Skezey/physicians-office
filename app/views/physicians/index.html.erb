@@ -1,2 +1,19 @@
-<h1>Physicians#index</h1>
-<p>Find me in app/views/physicians/index.html.erb</p>
+<%= link_to 'Add new physician', new_physician_path, class: 'btn btn-primary'	%>
+<table class='table'>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Specialty</td>
+      <td>Action</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @physicians.each do |physician| %>
+    <tr>
+      <td><%= link_to physician.name, physician_path(physician) %></td>
+      <td><%= physician.specialty %></td>
+      <td><%= link_to 'Edit', edit_physician_path(physician), class: 'btn btn-warning'%> <%= link_to 'Delete', physician_path(physician), method: :delete, class: 'btn btn-danger'%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

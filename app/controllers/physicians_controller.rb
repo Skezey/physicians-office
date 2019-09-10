@@ -2,7 +2,7 @@ class PhysiciansController < ApplicationController
   before_action :set_physician, only: [:show, :edit, :update, :destroy]
 
   def index
-    @physicians = Physician.all
+    @physicians = Physician.all.order(name: :asc)
   end
 
   def show
@@ -14,18 +14,27 @@ class PhysiciansController < ApplicationController
 
   def create
     @physician = Physician.new(physician_params)
-    @physician.save ? (redirect_to physician_path) : (render :new)
+    if @physician.save
+      redirect_to physician_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @physician.update ? (redirect_to physician_path) : (render :update)
+    if @physician.update(physician_params)
+      redirect_to physician_path
+    else
+      render :edit
+    end
   end
 
   def destroy
     @physician.destroy
+    redirect_to physicians_path
   end
 
   private

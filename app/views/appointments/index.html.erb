@@ -1,2 +1,20 @@
-<h1>Appointments#index</h1>
-<p>Find me in app/views/appointments/index.html.erb</p>
+<table class='table'>
+  <thead>
+    <tr>
+      <td>Patient</td>
+      <td>Physician</td>
+      <td>Time</td>
+      <td>Date</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= Patient.find(appointment.patient_id).name %></td>
+      <td><%= Physician.find(appointment.physician_id).name %></td>
+      <td><%= appointment.time %></td>
+      <td><%= appointment.date %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
